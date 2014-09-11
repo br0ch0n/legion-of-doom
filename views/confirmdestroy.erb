@@ -1,0 +1,24 @@
+<%= erb :header %>
+
+<br/><br/>
+ <div class="container" role="main">
+
+<h1>Really destroy <%=params[:name]%>?</h1>
+<a type="button" href="/allhosts" class="btn btn-sm btn-default">Noooo! Don't do it!</a> <a type="button" href="/destroycontainer/<%=params[:parent] %>/<%=params[:name]%>" class="btn btn-sm btn-danger">DESTROY <%=params[:name] %>!</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<%= erb :footer %>
+

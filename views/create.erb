@@ -1,0 +1,52 @@
+<%= erb :header %>
+<div class="container">
+<br /><br />
+<div class="page-header">
+	<h2>Create New Container</h2>
+</div>
+	  <form action="/create" method="post" role="form">
+		  <div class="form-group">
+			  <label for="name">Container Name</label>
+			  <input type="text" class="form-control" name="name" id="name" value="newcontainer" >
+		  </div>
+		  <div class="form-group">
+			  <label for="templatename">Template Name</label>
+			  <input type="text" class="form-control" name="templatename" id="templatename" value="ubuntu" >
+		  </div>
+		  <div class="form-group">
+			  <label for="templateopts">Template Options</label>
+			  <input type="text" class="form-control" name="templateopts" id="templateopts" value="" >
+		  </div>
+		  <div class="form-group"> 
+			  <label for="autostart">Autostart?</label>
+			  <input type="radio" name="autostart" value="1">YES
+			  <input type="radio" name="autostart" value="0" checked="">NO
+		  </div>
+
+	  	  <div class="form-group">
+			  <label for="parent">Parent Host</label>
+			  <select class="form-control" name="parent" id="parent" value="parenthost" >
+				  <% @mc.list.each do |boxen| %>
+					  <option value="<%=boxen[:sender] %>"><%=boxen[:sender] %></option>
+				  <% end %>
+			  </select>
+		  </div>
+	  	  <div class="form-group">
+			  <label for="IP">IP (leave blank for DHCP)</label>
+			  <input type="text" class="form-control" name="IP" id="IP">
+		  </div>
+	  	  <div class="form-group">
+			  <label for="gateway">Gateway (leave blank for DHCP)</label>
+			  <input type="text" class="form-control" name="gateway" id="gateway">
+		  </div>
+
+	  	  <div class="form-group">
+			  <label for="bridge">Bridge Interface (leave blank for host's default)</label>
+			  <input type="text" class="form-control" name="bridge" id="bridge" value="" >
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">CREATE</button>
+
+	  </form>
+  </div>
+<%= erb :footer %>

@@ -1,0 +1,56 @@
+<%= erb :header %>
+
+<br/><br/>
+ <div class="container" role="main">
+  <div class="page-header">
+	  <h1>LXC Containers</h1>
+  </div>
+       <div class="col-md-8">
+          <table id="clist" class="table table-striped tablesorter">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>IP</th>
+		<th>State</th>
+		<th>Parent</th>
+		<th>Actions &nbsp &nbsp  <== click on column header to sort </th>
+              </tr>
+            </thead>
+	    <tbody>
+
+	    <% @bazz.list.each do |resp| %>
+		    <% resp[:data].each do |rsp, v| %>
+			    <% unless v.nil? %>
+                <tr>
+                        <td>
+				<%=v[:name] %> 
+                        </td>
+                        <td>
+                                <%=v[:ip] %>
+                        </td>
+			<td>
+				<% if v[:state].to_s == "running" %>
+					<span class="label label-primary"><%=v[:state] %></span>
+				<% else %>
+
+					<span class="label label-default"><%=v[:state] %></span>
+				<% end %>
+			</td>
+			<td>
+				<%=resp[:sender] %>
+			</td>
+			<td><a type="button" href="/startcontainer/<%=resp[:sender] %>/<%=v[:name] %>" class="btn btn-sm btn-success">START</a> <a type="button" href="/stopcontainer/<%=resp[:sender] %>/<%=v[:name] %>" class="btn btn-sm btn-warning">STOP</a> <a type="button" href="/confirmdestroy?parent=<%=resp[:sender] %>&name=<%=v[:name] %>" class="btn btn-sm btn-danger">DESTROY</a>
+
+			</td>
+                </tr>
+	<% end %>
+<% end %>
+	<% end %>
+	<% @bazz.disconnect %>
+
+          </tbody>
+</table>
+</div>
+</div>
+
+<%= erb :footer %>
