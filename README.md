@@ -9,7 +9,7 @@ This is a simple, hacky, yet functional frontend for my [LXC MCollective agent](
 
 * You can start, stop, create and destroy containers.
 * It's a [Sinatra](http://www.sinatrarb.com/) app made to look slightly nice-ish via [Bootstrap](http://getbootstrap.com/).
-* Shout-outs to [https://github.com/maguec/mco_dashboard_example](https://github.com/maguec/mco_dashboard_example) and [https://github.com/lxc-webpanel/LXC-Web-Panel](https://github.com/lxc-webpanel/LXC-Web-Panel)
+* Shout-outs to [https://github.com/maguec/mco_dashboard_example](https://github.com/maguec/mco_dashboard_example) and [https://github.com/lxc-webpanel/LXC-Web-Panel](https://github.com/lxc-webpanel/LXC-Web-Panel).
 
 Requirements and Notes
 ----------------------
