@@ -35,6 +35,12 @@ post '/create' do
 	unless params[:bridge].empty?
 		@mc.set_config_item(:name => params[:name], :configkey => 'lxc.network.0.link', :configvalue => params[:bridge])
 	end
+	unless params[:cpushares].empty?
+		@mc.set_config_item(:name => params[:name], :configkey => 'lxc.cgroup.cpu.shares', :configvalue => params[:cpushares])
+	end
+	unless params[:memlimit].empty?
+		@mc.set_config_item(:name => params[:name], :configkey => 'lxc.cgroup.memory.limit_in_bytes', :configvalue => params[:memlimit])
+	end
 
 	@mc.reset_filter
 	@mc.disconnect

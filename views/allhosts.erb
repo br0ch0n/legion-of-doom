@@ -5,13 +5,16 @@
   <div class="page-header">
 	  <h1>LXC Containers</h1>
   </div>
-       <div class="col-md-8">
+       <div class="col-md-10">
           <table id="clist" class="table table-striped tablesorter">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>IP</th>
 		<th>State</th>
+		<th>Memory Usage</th>
+		<th>Memory Limit</th>
+		<th>CPU Shares</th>
 		<th>Parent</th>
 		<th>Actions &nbsp &nbsp  <== click on column header to sort </th>
               </tr>
@@ -36,6 +39,15 @@
 					<span class="label label-default"><%=v[:state] %></span>
 				<% end %>
 			</td>
+        		<td>
+				<%=v[:memused] %> 
+                        </td>
+        		<td>
+				<%=v[:memlimit] %> 
+                        </td>
+        		<td>
+				<%=v[:cpushares] %> 
+                        </td>
 			<td>
 				<%=resp[:sender] %>
 			</td>
